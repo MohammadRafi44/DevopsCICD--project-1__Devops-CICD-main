@@ -34,12 +34,12 @@ pipeline {
                 }
             }
         }
-        // stage('TRIVY-SCAN'){
-        //     steps {
-        //         sh 'trivy fs --security-checks vuln,config /var/lib/jenkins/workspace/devops-cicd-pipeline'
-        //         // sh 'trivy fs --format table -o trivy-fs-report.html .'
-        //     }
-        // }
+        stage('TRIVY-SCAN'){
+            steps {
+                sh 'trivy fs --security-checks vuln,config /var/lib/jenkins/workspace/cicd-devops-pipiline'
+                // sh 'trivy fs --format table -o trivy-fs-report.html .'
+            }
+        }
 
         // stage('CODE-BUILD'){
         //     steps {
