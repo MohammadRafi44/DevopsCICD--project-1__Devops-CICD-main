@@ -55,23 +55,23 @@ pipeline {
             }
         }
 
-        // stage('DOCKER-PUBLISH'){
-        //     steps {
-        //         withDockerRegistry(credentialsId: 'jenkins-docker-id', url: 'https://index.docker.io/v1/') {
-        //             sh "docker tag cicd-devops mohammadrafi44/cicd-devops:$BUILD_ID"
-        //             sh "docker push mohammadrafi44/cicd-devops:$BUILD_ID"
-        //         }
-        //     }
-        // }
-        // stage("DOCKER-IMAGE-CLEANUP"){
-        //     steps {
-        //         script {
-        //             echo 'docker images cleanup started'
-        //             sh 'docker system prune -af'
-        //             echo 'docker images cleanup finished'
-        //         }
-        //     }
-        // }
+        stage('DOCKER-PUBLISH'){
+            steps {
+                withDockerRegistry(credentialsId: 'dockerhub-cred', url: 'https://index.docker.io/v1/') {
+                    sh "docker tag cicd-devops mohammadrafi44/devopscicd-project-1_devops-cicd-main:$BUILD_ID"
+                    sh "docker push mohammadrafi44/devopscicd-project-1_devops-cicd-main:$BUILD_ID"
+                }
+            }
+        }
+        stage("DOCKER-IMAGE-CLEANUP"){
+            steps {
+                script {
+                    echo 'docker images cleanup started'
+                    sh 'docker system prune -af'
+                    echo 'docker images cleanup finished'
+                }
+            }
+        }
         // stage("K8S-DEPLOY"){
         //     steps {
         //         script {
