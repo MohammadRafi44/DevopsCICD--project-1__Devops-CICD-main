@@ -41,19 +41,19 @@ pipeline {
             }
         }
 
-        // stage('CODE-BUILD'){
-        //     steps {
-        //         sh " mvn clean install"
-        //     }
-        // }
+        stage('CODE-BUILD'){
+            steps {
+                sh " mvn clean install"
+            }
+        }
 
-        // stage('DOCKER-BUILD'){
-        //     steps {
-        //         withDockerRegistry(credentialsId: 'jenkins-docker-id', url: 'https://index.docker.io/v1/') {
-        //             sh "docker build -t cicd-devops ."
-        //         }
-        //     }
-        // }
+        stage('DOCKER-BUILD'){
+            steps {
+                withDockerRegistry(credentialsId: 'jenkins-docker-id', url: 'https://index.docker.io/v1/') {
+                    sh "docker build -t cicd-devops ."
+                }
+            }
+        }
 
         // stage('DOCKER-PUBLISH'){
         //     steps {
