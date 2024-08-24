@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-k8s
-          image: mohammadrafi44/cicd-devops:${BUILD_ID} # Include the specific tag if needed
+          image: mohammadrafi44/devopscicd-project-1_devops-cicd-main:${BUILD_ID} # Include the specific tag if needed
           imagePullPolicy: Always # Ensures the latest image is pulled
           ports:
             - containerPort: 8080
