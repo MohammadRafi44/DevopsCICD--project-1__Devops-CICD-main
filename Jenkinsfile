@@ -49,7 +49,7 @@ pipeline {
 
         stage('DOCKER-BUILD'){
             steps {
-                withDockerRegistry(credentialsId: 'jenkins-docker-id', url: 'https://index.docker.io/v1/') {
+                withDockerRegistry(credentialsId: 'dockerhub-cred', url: 'https://index.docker.io/v1/') {
                     sh "docker build -t cicd-devops ."
                 }
             }
