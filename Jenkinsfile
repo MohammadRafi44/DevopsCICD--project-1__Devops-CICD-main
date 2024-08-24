@@ -76,7 +76,7 @@ pipeline {
             steps {
                 script {
                     withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: '', credentialsId: 'k8s-token-for-jenkins', namespace: 'jenkins', restrictKubeConfigAccess: false, serverUrl: 'https://172.31.37.170:6443') {
-                        sh "sed -i 's|mohammadrafi44/cicd-devops:.*|mohammadrafi44/cicd-devops:${BUILD_ID}|' deploymentservice.yaml"
+                        sh "sed -i 's|mohammadrafi44/devopscicd-project-1_devops-cicd-main:.*|mohammadrafi44/devopscicd-project-1_devops-cicd-main:${BUILD_ID}|' deploymentservice.yaml"
                         sh "kubectl apply -f deploymentservice.yaml"
                         sleep 20
                     }
